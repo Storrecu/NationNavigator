@@ -18,11 +18,3 @@ const SearchBar = ({ inputValue, inputChange }) => {
 };
 
 export default SearchBar;
-
-// const filterDevice = devices.filter((device) => {
-//   const searchText = text.toLowerCase();
-//   return (
-//     device.brand.toLowerCase().includes(searchText) ||
-//     device.model.toLowerCase().includes(searchText)
-//   );
-// });
