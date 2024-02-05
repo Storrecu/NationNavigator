@@ -1,4 +1,4 @@
-import axios from 'acios';
+import axios from 'axios';
 
 const callToApi = async () => {
   const response = await axios.get('https://restcountries.com/v3.1/all');
