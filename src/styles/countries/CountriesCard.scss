@@ -13,7 +13,7 @@
   }
 
   &-name {
-    padding: 1rem;
+    padding: 0.5rem;
     overflow: auto;
     word-wrap: break-word;
   }
@@ -24,6 +24,7 @@
     position: absolute;
     top: 80%;
     left: 70%;
+    z-index: 1000;
 
     @media all and (min-width: 768px) {
       left: 76%;
