@@ -12,8 +12,10 @@ const CountriesCard = ({ country }) => {
     navigate(`/name/${country.name.official}`);
   };
 
-  const handleHeartClick = () => {
+  const handleHeartClick = (e) => {
+    e.stopPropagation();
     setIsFav(!isFav);
+    console.log('isFav:', !isFav);
   };
 
   return (
