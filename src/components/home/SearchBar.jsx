@@ -4,7 +4,7 @@ const SearchBar = () => {
   return (
     <div className="search_bar">
       <form>
-        <label> Search</label>
+        <label>SearchBar</label>
       </form>
     </div>
   );

@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import callToApi from '../../services/callToApi';
 import CountriesCard from './CountriesCard';
 
 const CountriesList = () => {
   const [countriesList, setCountriesList] = useState([]);
 
-  const renderedCountries = countriesList.map((country, index) => {
+  const renderedCountries = countriesList.map((country) => {
     console.log(country);
-    return <CountriesCard key={country.index} country={country} />;
+    return <CountriesCard key={uuidv4()} country={country} />;
   });
 
   useEffect(() => {
@@ -20,11 +21,7 @@ const CountriesList = () => {
       });
   }, []);
 
-  return (
-    <div>
-      <p>{renderedCountries}</p>
-    </div>
-  );
+  return <div>{renderedCountries}</div>;
 };
 
 export default CountriesList;
