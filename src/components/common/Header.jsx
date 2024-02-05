@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import world from '../../images/world.jpeg';
-import '../../styles/Header.scss';
+import '../../styles/common/Header.scss';
 
 const Header = () => {
   return (

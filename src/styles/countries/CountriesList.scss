@@ -1,0 +1,19 @@
+.countries_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  gap: 10px;
+
+  @media all and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    margin: auto;
+    gap: 1rem;
+  }
+  @media all and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-width: 1600px;
+    justify-items: center;
+  }
+}

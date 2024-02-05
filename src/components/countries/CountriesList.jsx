@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import callToApi from '../../services/callToApi';
 import CountriesCard from './CountriesCard';
+import '../../styles/countries/CountriesList.scss';
 
 const CountriesList = () => {
   const [countriesList, setCountriesList] = useState([]);
@@ -21,7 +22,7 @@ const CountriesList = () => {
       });
   }, []);
 
-  return <div>{renderedCountries}</div>;
+  return <div className="countries_list">{renderedCountries}</div>;
 };
 
 export default CountriesList;
