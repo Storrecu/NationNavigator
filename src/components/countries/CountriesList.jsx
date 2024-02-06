@@ -5,7 +5,14 @@ import FilterLanguage from '../filters/FilterLanguage';
 import FilterRegion from '../filters/FilterRegion';
 import '../../styles/countries/CountriesList.scss';
 
-const CountriesList = ({ filteredCountries, inputValue, inputChange }) => {
+const CountriesList = ({
+  filteredCountries,
+  inputValue,
+  inputChange,
+  selectLang,
+  selectRegion,
+  selectChange,
+}) => {
   const noMatches = filteredCountries.length === 0;
 
   const renderedCountries = filteredCountries.map((country) => {
@@ -16,8 +23,8 @@ const CountriesList = ({ filteredCountries, inputValue, inputChange }) => {
     <div className="main_content">
       <div className="main_content-filters">
         <SearchBar inputValue={inputValue} inputChange={inputChange} />
-        <FilterLanguage />
-        <FilterRegion />
+        <FilterLanguage selectLang={selectLang} selectChange={selectChange} />
+        <FilterRegion selectRegion={selectRegion} selectChange={selectChange} />
       </div>
       <div className="main_content_countries-list">
         {noMatches ? <p>No matches found</p> : renderedCountries}

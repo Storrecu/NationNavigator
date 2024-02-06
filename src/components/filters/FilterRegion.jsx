@@ -1,11 +1,18 @@
 import React from 'react';
 
-const FilterRegion = () => {
+const FilterRegion = ({ selectRegion, selectChange }) => {
+  const handleSelect = (e) => {
+    const selectedRegion = e.target.value;
+    selectChange(selectedRegion === 'All regions' ? '' : selectedRegion);
+  };
+
   return (
     <div>
       <form>
         <label>Filter by Region:</label>
-        <select></select>
+        <select value={selectRegion} onChange={handleSelect}>
+          <option>All</option>
+        </select>
       </form>
     </div>
   );

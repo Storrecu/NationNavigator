@@ -7,10 +7,17 @@ import Footer from '../common/Footer';
 const HomePage = () => {
   const [countriesList, setCountriesList] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [selectLang, setSelectLang] = useState('');
+  const [selectRegion, setSelectRegion] = useState('');
 
   const filteredCountries = countriesList.filter((country) =>
     country.name.official.toLowerCase().includes(inputValue.toLowerCase())
   );
+
+  const handleSelectChange = (value) => {
+    setSelectLang(value);
+    setSelectRegion(value);
+  };
 
   const handleInputChange = (value) => {
     setInputValue(value);
@@ -36,6 +43,9 @@ const HomePage = () => {
           filteredCountries={filteredCountries}
           inputValue={inputValue}
           inputChange={handleInputChange}
+          selectLang={selectLang}
+          selectRegion={selectRegion}
+          selectChange={handleSelectChange}
         />
       </main>
       <footer>
