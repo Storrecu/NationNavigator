@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import CountriesCard from './CountriesCard';
+import FilterLanguage from '../filters/FilterLanguage';
+import FilterRegion from '../filters/FilterRegion';
 import '../../styles/countries/CountriesList.scss';
 
 const CountriesList = ({ filteredCountries }) => {
@@ -11,6 +13,8 @@ const CountriesList = ({ filteredCountries }) => {
 
   return (
     <div className="countries_list">
+      <FilterLanguage />
+      <FilterRegion />
       {noMatches ? <p>No matches found</p> : renderedCountries}
     </div>
   );
