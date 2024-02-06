@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import '../../react-leaflet-icon';
-import '../../react-leaflet.css';
 import axios from 'axios';
 
 const CountriesDetails = () => {
