@@ -6,6 +6,7 @@ import FilterRegion from '../filters/FilterRegion';
 import '../../styles/countries/CountriesList.scss';
 
 const CountriesList = ({
+  countriesList,
   filteredCountries,
   inputValue,
   inputChange,
@@ -13,6 +14,7 @@ const CountriesList = ({
   selectRegion,
   selectChange,
   languages,
+  regions,
 }) => {
   const noMatches = filteredCountries.length === 0;
 
@@ -29,7 +31,11 @@ const CountriesList = ({
           selectChange={selectChange}
           languages={languages}
         />
-        <FilterRegion selectRegion={selectRegion} selectChange={selectChange} />
+        <FilterRegion
+          selectRegion={selectRegion}
+          selectChange={selectChange}
+          regions={regions}
+        />
       </div>
       <div className="main_content_countries-list">
         {noMatches ? <p>No matches found</p> : renderedCountries}

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const FilterRegion = ({ selectRegion, selectChange }) => {
+const FilterRegion = ({ selectRegion, selectChange, regions }) => {
   const handleSelect = (e) => {
     const selectedRegion = e.target.value;
-    selectChange(selectedRegion === 'All regions' ? '' : selectedRegion);
+    selectChange(selectedRegion);
   };
 
   return (
@@ -11,7 +11,12 @@ const FilterRegion = ({ selectRegion, selectChange }) => {
       <form>
         <label>Filter by Region:</label>
         <select value={selectRegion} onChange={handleSelect}>
-          <option>All</option>
+          <option>All regions</option>
+          {regions.map((region, i) => (
+            <option key={i} value={region}>
+              {region}
+            </option>
+          ))}
         </select>
       </form>
     </div>
@@ -19,13 +24,3 @@ const FilterRegion = ({ selectRegion, selectChange }) => {
 };
 
 export default FilterRegion;
-
-// {
-//   /* <select>
-// {device.options.storages.map((element, index) => (
-//   <option key={index} value={element.code}>
-//     {element.name}
-//   </option>
-// ))}
-// </select> */
-// }

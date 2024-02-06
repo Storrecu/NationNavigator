@@ -1,7 +1,7 @@
 const FilterLanguage = ({ selectLang, selectChange, languages }) => {
   const handleSelect = (e) => {
     const selectedLang = e.target.value;
-    selectChange(selectedLang === 'All languages' ? '' : selectedLang);
+    selectChange(selectedLang);
   };
 
   return (

@@ -10,6 +10,7 @@ const HomePage = () => {
   const [selectLang, setSelectLang] = useState('');
   const [selectRegion, setSelectRegion] = useState('');
   const [languages, setLanguages] = useState([]);
+  const [regions, setRegions] = useState([]);
 
   const filteredCountries = countriesList.filter((country) => {
     const nameMatches = country.name.official
@@ -18,12 +19,19 @@ const HomePage = () => {
     const langMatches =
       selectLang === '' ||
       Object.values(country.languages).includes(selectLang);
+    const regionMatches =
+      selectRegion === '' || country.region === selectRegion;
     return nameMatches && langMatches;
   });
 
   const handleSelectChange = (value) => {
-    setSelectLang(value);
-    setSelectRegion(value);
+    if (value === 'All') {
+      setSelectLang('');
+      setSelectRegion('');
+    } else {
+      setSelectLang(value);
+      setSelectRegion(value);
+    }
   };
 
   const handleInputChange = (value) => {
@@ -34,15 +42,20 @@ const HomePage = () => {
     callToApi()
       .then((response) => {
         setCountriesList(response);
-        const langs = response.reduce((acc, country) => {
-          Object.values(country.languages).forEach((lang) => {
-            if (!acc.includes(lang)) {
-              acc.push(lang);
-            }
-          });
-          return acc;
-        }, []);
-        setLanguages(langs);
+        // idiomas
+        const allLanguages = response.flatMap((country) =>
+          Object.values(country.languages)
+        );
+        const uniqueSortedLanguages = [...new Set(allLanguages)].sort();
+        setLanguages(uniqueSortedLanguages);
+        //regiones
+        const uniqueRegions = [
+          ...new Set(response.map((country) => country.region)),
+        ];
+        const sortedRegions = uniqueRegions
+          .filter((region) => region !== '')
+          .sort();
+        setRegions(sortedRegions);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -56,6 +69,7 @@ const HomePage = () => {
       </header>
       <main>
         <CountriesList
+          countriesList={countriesList}
           filteredCountries={filteredCountries}
           inputValue={inputValue}
           inputChange={handleInputChange}
@@ -63,6 +77,7 @@ const HomePage = () => {
           selectRegion={selectRegion}
           selectChange={handleSelectChange}
           languages={languages}
+          regions={regions}
         />
       </main>
       <footer>
