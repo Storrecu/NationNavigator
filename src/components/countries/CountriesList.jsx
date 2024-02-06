@@ -13,11 +13,15 @@ const CountriesList = ({ filteredCountries, inputValue, inputChange }) => {
   });
 
   return (
-    <div className="countries_list">
-      <SearchBar inputValue={inputValue} inputChange={inputChange} />
-      <FilterLanguage />
-      <FilterRegion />
-      {noMatches ? <p>No matches found</p> : renderedCountries}
+    <div className="main_content">
+      <div className="main_content-filters">
+        <SearchBar inputValue={inputValue} inputChange={inputChange} />
+        <FilterLanguage />
+        <FilterRegion />
+      </div>
+      <div className="main_content_countries-list">
+        {noMatches ? <p>No matches found</p> : renderedCountries}
+      </div>
     </div>
   );
 };
