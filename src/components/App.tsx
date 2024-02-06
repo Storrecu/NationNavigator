@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './home/HomePage';
 import '../styles/Reset.scss';
+import '../styles/index.scss';
 import CountriesDetails from './countries/CountriesDetails';
 
 const App = () => {

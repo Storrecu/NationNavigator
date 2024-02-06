@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+// import './App.css'; // Si tienes estilos específicos para el mapa, puedes importarlos aquí
+import { Map, tileLayer } from 'leaflet';
 import axios from 'axios';
 
 const CountriesDetails = () => {
   const { name } = useParams();
   const [countryDetails, setCountryDetails] = useState(null);
-  const [lat, setLat] = useState(0);
-  const [lng, setLng] = useState(0);
+  const [map, setMap] = useState(null);
+  const mapInit = useRef(false);
 
   useEffect(() => {
     const fetchCountryDetails = async () => {
@@ -17,41 +18,42 @@ const CountriesDetails = () => {
         );
         const data = response.data[0];
         setCountryDetails(data);
-        setLat(data.latlng[0]);
-        setLng(data.latlng[1]);
       } catch (error) {
         console.error('Error fetching country details:', error);
       }
     };
 
     fetchCountryDetails();
-
-    return () => {
-      setCountryDetails(null);
-    };
   }, [name]);
 
-  if (!countryDetails) {
-    return <p>Loading...</p>;
-  }
+  useEffect(() => {
+    if (countryDetails && !mapInit.current) {
+      mapInit.current = true;
+      const newMap = new Map('map', {
+        center: countryDetails.latlng,
+        zoom: 5,
+      });
+      setMap(newMap);
+    }
+  }, [countryDetails]);
+
+  const initMap = () => {
+    map &&
+      tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+  };
+
+  useEffect(() => {
+    initMap();
+  }, [map]);
 
   return (
     <div>
-      <h2>{countryDetails.name.official}</h2>
-      <p>Region: {countryDetails.region}</p>
-      <p>Languages: {Object.values(countryDetails.languages).join(', ')}</p>
-      <div style={{ height: '400px', width: '100%' }}>
-        <MapContainer
-          center={[lat, lng]}
-          zoom={8}
-          style={{ height: '100%', width: '100%' }}
-        >
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <Marker position={[lat, lng]}>
-            <Popup>{countryDetails.name.official}</Popup>
-          </Marker>
-        </MapContainer>
-      </div>
+      <h2>{countryDetails && countryDetails.name.official}</h2>
+      <div id="map" style={{ height: '400px', width: '100%' }}></div>
     </div>
   );
 };
