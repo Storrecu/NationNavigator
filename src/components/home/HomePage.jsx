@@ -9,10 +9,17 @@ const HomePage = () => {
   const [inputValue, setInputValue] = useState('');
   const [selectLang, setSelectLang] = useState('');
   const [selectRegion, setSelectRegion] = useState('');
+  const [languages, setLanguages] = useState([]);
 
-  const filteredCountries = countriesList.filter((country) =>
-    country.name.official.toLowerCase().includes(inputValue.toLowerCase())
-  );
+  const filteredCountries = countriesList.filter((country) => {
+    const nameMatches = country.name.official
+      .toLowerCase()
+      .includes(inputValue.toLowerCase());
+    const langMatches =
+      selectLang === '' ||
+      Object.values(country.languages).includes(selectLang);
+    return nameMatches && langMatches;
+  });
 
   const handleSelectChange = (value) => {
     setSelectLang(value);
@@ -27,6 +34,15 @@ const HomePage = () => {
     callToApi()
       .then((response) => {
         setCountriesList(response);
+        const langs = response.reduce((acc, country) => {
+          Object.values(country.languages).forEach((lang) => {
+            if (!acc.includes(lang)) {
+              acc.push(lang);
+            }
+          });
+          return acc;
+        }, []);
+        setLanguages(langs);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -46,6 +62,7 @@ const HomePage = () => {
           selectLang={selectLang}
           selectRegion={selectRegion}
           selectChange={handleSelectChange}
+          languages={languages}
         />
       </main>
       <footer>

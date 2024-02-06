@@ -12,6 +12,7 @@ const CountriesList = ({
   selectLang,
   selectRegion,
   selectChange,
+  languages,
 }) => {
   const noMatches = filteredCountries.length === 0;
 
@@ -23,7 +24,11 @@ const CountriesList = ({
     <div className="main_content">
       <div className="main_content-filters">
         <SearchBar inputValue={inputValue} inputChange={inputChange} />
-        <FilterLanguage selectLang={selectLang} selectChange={selectChange} />
+        <FilterLanguage
+          selectLang={selectLang}
+          selectChange={selectChange}
+          languages={languages}
+        />
         <FilterRegion selectRegion={selectRegion} selectChange={selectChange} />
       </div>
       <div className="main_content_countries-list">
