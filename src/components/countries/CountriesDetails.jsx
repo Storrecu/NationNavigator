@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import './App.css'; // Si tienes estilos específicos para el mapa, puedes importarlos aquí
 import { Map, tileLayer } from 'leaflet';
 import axios from 'axios';
 

@@ -10,8 +10,13 @@ const SearchBar = ({ inputValue, inputChange }) => {
   return (
     <div className="search_bar">
       <form onSubmit={handleFormSubmit}>
-        <label>Search by country name</label>
-        <input type="text" value={inputValue} onChange={handleInputChange} />
+        <label htmlFor="search-name">Search by country name</label>
+        <input
+          id="search-name"
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
       </form>
     </div>
   );

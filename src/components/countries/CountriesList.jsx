@@ -6,13 +6,13 @@ import FilterRegion from '../filters/FilterRegion';
 import '../../styles/countries/CountriesList.scss';
 
 const CountriesList = ({
-  countriesList,
   filteredCountries,
   inputValue,
   inputChange,
   selectLang,
   selectRegion,
-  selectChange,
+  onSelectLang,
+  onSelectRegion,
   languages,
   regions,
 }) => {
@@ -28,12 +28,12 @@ const CountriesList = ({
         <SearchBar inputValue={inputValue} inputChange={inputChange} />
         <FilterLanguage
           selectLang={selectLang}
-          selectChange={selectChange}
+          selectChange={onSelectLang}
           languages={languages}
         />
         <FilterRegion
           selectRegion={selectRegion}
-          selectChange={selectChange}
+          selectChange={onSelectRegion}
           regions={regions}
         />
       </div>

@@ -21,18 +21,8 @@ const HomePage = () => {
       Object.values(country.languages).includes(selectLang);
     const regionMatches =
       selectRegion === '' || country.region === selectRegion;
-    return nameMatches && langMatches;
+    return nameMatches && langMatches && regionMatches;
   });
-
-  const handleSelectChange = (value) => {
-    if (value === 'All') {
-      setSelectLang('');
-      setSelectRegion('');
-    } else {
-      setSelectLang(value);
-      setSelectRegion(value);
-    }
-  };
 
   const handleInputChange = (value) => {
     setInputValue(value);
@@ -52,9 +42,7 @@ const HomePage = () => {
         const uniqueRegions = [
           ...new Set(response.map((country) => country.region)),
         ];
-        const sortedRegions = uniqueRegions
-          .filter((region) => region !== '')
-          .sort();
+        const sortedRegions = uniqueRegions.sort();
         setRegions(sortedRegions);
       })
       .catch((error) => {
@@ -69,13 +57,17 @@ const HomePage = () => {
       </header>
       <main>
         <CountriesList
-          countriesList={countriesList}
           filteredCountries={filteredCountries}
           inputValue={inputValue}
           inputChange={handleInputChange}
           selectLang={selectLang}
           selectRegion={selectRegion}
-          selectChange={handleSelectChange}
+          onSelectLang={(value) => {
+            setSelectLang(value === 'All' ? '' : value);
+          }}
+          onSelectRegion={(value) => {
+            setSelectRegion(value === 'All' ? '' : value);
+          }}
           languages={languages}
           regions={regions}
         />
