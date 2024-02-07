@@ -4,6 +4,8 @@
   border-radius: 10px;
   box-shadow: 5px 5px 10px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   &-img {
     width: 100%;
@@ -14,8 +16,15 @@
 
   &-name {
     padding: 0.5rem;
-    overflow: auto;
-    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    height: 80px;
+
+    &:hover {
+      width: 100%;
+    }
   }
 
   &-heart {

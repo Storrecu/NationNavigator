@@ -2,14 +2,17 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Map, tileLayer } from 'leaflet';
 import axios from 'axios';
+import Spinner from '../Spinner';
 
 const CountriesDetails = () => {
   const { name } = useParams();
   const [countryDetails, setCountryDetails] = useState(null);
   const [map, setMap] = useState(null);
   const mapInit = useRef(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const fetchCountryDetails = async () => {
       try {
         const response = await axios.get(
@@ -17,8 +20,10 @@ const CountriesDetails = () => {
         );
         const data = response.data[0];
         setCountryDetails(data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching country details:', error);
+        setLoading(false);
       }
     };
 
@@ -51,7 +56,7 @@ const CountriesDetails = () => {
 
   return (
     <div>
-      <h2>{countryDetails && countryDetails.name.official}</h2>
+      {loading ? <Spinner /> : countryDetails && countryDetails.name.official}
       <div id="map" style={{ height: '400px', width: '100%' }}></div>
     </div>
   );

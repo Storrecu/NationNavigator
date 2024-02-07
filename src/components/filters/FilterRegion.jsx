@@ -1,4 +1,4 @@
-import React from 'react';
+import '../../styles/filters/FilterRegion.scss';
 
 const FilterRegion = ({ selectRegion, selectChange, regions }) => {
   const handleSelect = (e) => {
@@ -9,7 +9,9 @@ const FilterRegion = ({ selectRegion, selectChange, regions }) => {
   return (
     <div>
       <form>
-        <label htmlFor="filter-reg">Filter by Region:</label>
+        <label className="filter-reg-title" htmlFor="filter-reg">
+          Filter by Region:
+        </label>
         <select id="filter-reg" value={selectRegion} onChange={handleSelect}>
           <option value="All">All regions</option>
           {regions.map((region, i) => (

@@ -3,6 +3,7 @@ import callToApi from '../../services/callToApi';
 import Header from '../common/Header';
 import CountriesList from '../countries/CountriesList';
 import Footer from '../common/Footer';
+import Spinner from '../Spinner';
 
 const HomePage = () => {
   const [countriesList, setCountriesList] = useState([]);
@@ -11,6 +12,7 @@ const HomePage = () => {
   const [selectRegion, setSelectRegion] = useState('');
   const [languages, setLanguages] = useState([]);
   const [regions, setRegions] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const filteredCountries = countriesList.filter((country) => {
     const nameMatches = country.name.official
@@ -25,11 +27,11 @@ const HomePage = () => {
   });
 
   const handleSelectRegion = (value) => {
-    return setSelectRegion(value === 'All' ? '' : value);
+    setSelectRegion(value === 'All' ? '' : value);
   };
 
   const handleSelectLang = (value) => {
-    return setSelectLang(value === 'All' ? '' : value);
+    setSelectLang(value === 'All' ? '' : value);
   };
 
   const handleInputChange = (value) => {
@@ -37,6 +39,7 @@ const HomePage = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
     callToApi()
       .then((response) => {
         setCountriesList(response);
@@ -50,9 +53,11 @@ const HomePage = () => {
         ];
         const sortedRegions = uniqueRegions.sort();
         setRegions(sortedRegions);
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
+        setLoading(false);
       });
   }, []);
 
@@ -62,17 +67,21 @@ const HomePage = () => {
         <Header />
       </header>
       <main>
-        <CountriesList
-          filteredCountries={filteredCountries}
-          inputValue={inputValue}
-          onInputChange={handleInputChange}
-          selectLang={selectLang}
-          onSelectLang={handleSelectLang}
-          selectRegion={selectRegion}
-          onSelectRegion={handleSelectRegion}
-          languages={languages}
-          regions={regions}
-        />
+        {loading ? (
+          <Spinner />
+        ) : (
+          <CountriesList
+            filteredCountries={filteredCountries}
+            inputValue={inputValue}
+            onInputChange={handleInputChange}
+            selectLang={selectLang}
+            onSelectLang={handleSelectLang}
+            selectRegion={selectRegion}
+            onSelectRegion={handleSelectRegion}
+            languages={languages}
+            regions={regions}
+          />
+        )}
       </main>
       <footer>
         <Footer />
