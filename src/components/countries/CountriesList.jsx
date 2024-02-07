@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import CountriesCard from './CountriesCard';
 import SearchBar from '../home/SearchBar';
 import FilterLanguage from '../filters/FilterLanguage';
@@ -18,8 +17,8 @@ const CountriesList = ({
 }) => {
   const noMatches = filteredCountries.length === 0;
 
-  const renderedCountries = filteredCountries.map((country) => {
-    return <CountriesCard key={uuidv4()} country={country} />;
+  const renderedCountries = filteredCountries.map((country, i) => {
+    return <CountriesCard key={i} country={country} />;
   });
 
   return (

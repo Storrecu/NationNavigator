@@ -13,6 +13,7 @@ const HomePage = () => {
   const [languages, setLanguages] = useState([]);
   const [regions, setRegions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [favorite, setFavorite] = useState([]);
 
   const filteredCountries = countriesList.filter((country) => {
     const nameMatches = country.name.official

@@ -19,21 +19,6 @@
     display: flex;
   }
 
-  &-name {
-    padding: 0.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
-    height: 80px;
-    position: relative;
-
-    &:hover {
-      max-width: 100%;
-      word-wrap: break-word;
-    }
-  }
-
   &-heart {
     width: 100px;
     height: 100px;
@@ -53,4 +38,14 @@
       width: 40%;
     }
   }
+}
+
+.my-anchor-element {
+  padding: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  height: 80px;
+  position: relative;
 }
