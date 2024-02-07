@@ -24,6 +24,14 @@ const HomePage = () => {
     return nameMatches && langMatches && regionMatches;
   });
 
+  const handleSelectRegion = (value) => {
+    return setSelectRegion(value === 'All' ? '' : value);
+  };
+
+  const handleSelectLang = (value) => {
+    return setSelectLang(value === 'All' ? '' : value);
+  };
+
   const handleInputChange = (value) => {
     setInputValue(value);
   };
@@ -32,13 +40,11 @@ const HomePage = () => {
     callToApi()
       .then((response) => {
         setCountriesList(response);
-        // idiomas
         const allLanguages = response.flatMap((country) =>
           Object.values(country.languages)
         );
         const uniqueSortedLanguages = [...new Set(allLanguages)].sort();
         setLanguages(uniqueSortedLanguages);
-        //regiones
         const uniqueRegions = [
           ...new Set(response.map((country) => country.region)),
         ];
@@ -59,15 +65,11 @@ const HomePage = () => {
         <CountriesList
           filteredCountries={filteredCountries}
           inputValue={inputValue}
-          inputChange={handleInputChange}
+          onInputChange={handleInputChange}
           selectLang={selectLang}
+          onSelectLang={handleSelectLang}
           selectRegion={selectRegion}
-          onSelectLang={(value) => {
-            setSelectLang(value === 'All' ? '' : value);
-          }}
-          onSelectRegion={(value) => {
-            setSelectRegion(value === 'All' ? '' : value);
-          }}
+          onSelectRegion={handleSelectRegion}
           languages={languages}
           regions={regions}
         />

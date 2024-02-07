@@ -11,7 +11,7 @@ const FilterRegion = ({ selectRegion, selectChange, regions }) => {
       <form>
         <label htmlFor="filter-reg">Filter by Region:</label>
         <select id="filter-reg" value={selectRegion} onChange={handleSelect}>
-          <option>All regions</option>
+          <option value="All">All regions</option>
           {regions.map((region, i) => (
             <option key={i} value={region}>
               {region}

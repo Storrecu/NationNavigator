@@ -9,7 +9,7 @@ const FilterLanguage = ({ selectLang, selectChange, languages }) => {
       <form>
         <label htmlFor="filter-lang">Filter by Language:</label>
         <select id="filter-lang" value={selectLang} onChange={handleSelect}>
-          <option value="">All languages</option>
+          <option value="All">All languages</option>
           {languages.map((language, i) => (
             <option key={i} value={language}>
               {language}

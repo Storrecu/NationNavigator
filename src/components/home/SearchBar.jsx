@@ -1,6 +1,6 @@
-const SearchBar = ({ inputValue, inputChange }) => {
-  const handleInputChange = (e) => {
-    inputChange(e.target.value);
+const SearchBar = ({ inputValue, onInputChange }) => {
+  const handleonInputChange = (e) => {
+    onInputChange(e.target.value);
   };
 
   const handleFormSubmit = (e) => {
@@ -15,7 +15,7 @@ const SearchBar = ({ inputValue, inputChange }) => {
           id="search-name"
           type="text"
           value={inputValue}
-          onChange={handleInputChange}
+          onChange={handleonInputChange}
         />
       </form>
     </div>

@@ -8,7 +8,7 @@ import '../../styles/countries/CountriesList.scss';
 const CountriesList = ({
   filteredCountries,
   inputValue,
-  inputChange,
+  onInputChange,
   selectLang,
   selectRegion,
   onSelectLang,
@@ -25,7 +25,7 @@ const CountriesList = ({
   return (
     <div className="main_content">
       <div className="main_content-filters">
-        <SearchBar inputValue={inputValue} inputChange={inputChange} />
+        <SearchBar inputValue={inputValue} onInputChange={onInputChange} />
         <FilterLanguage
           selectLang={selectLang}
           selectChange={onSelectLang}
