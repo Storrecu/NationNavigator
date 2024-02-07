@@ -6,6 +6,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   &-img {
     width: 100%;
@@ -19,11 +24,13 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 200px;
+    max-width: 200px;
     height: 80px;
+    position: relative;
 
     &:hover {
-      width: 100%;
+      max-width: 100%;
+      word-wrap: break-word;
     }
   }
 
