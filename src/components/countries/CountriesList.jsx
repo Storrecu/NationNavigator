@@ -15,12 +15,20 @@ const CountriesList = ({
   languages,
   regions,
   favCountries,
+  isFavorite,
+  setIsFavorite,
 }) => {
   const noMatches = filteredCountries.length === 0;
 
   const renderedCountries = filteredCountries.map((country, i) => {
     return (
-      <CountriesCard key={i} country={country} favCountries={favCountries} />
+      <CountriesCard
+        key={i}
+        country={country}
+        favCountries={favCountries}
+        isFavorite={isFavorite}
+        setIsFavorite={setIsFavorite}
+      />
     );
   });
 

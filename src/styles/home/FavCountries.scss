@@ -1,7 +1,16 @@
-.favorites-section {
+.favorites {
+  padding: 1rem;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  overflow-x: scroll;
+  flex-direction: column;
+  gap: 1rem;
+
+  &-section {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: scroll;
+  }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import callToApi from '../../services/callToApi';
 import Header from '../common/Header';
 import CountriesList from '../countries/CountriesList';
@@ -15,53 +15,63 @@ const HomePage = () => {
   const [regions, setRegions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [favorites, setFavorites] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleFavCountries = (favCountry) => {
-    const isFavorite = favorites.some((country) => country === favCountry);
-    if (!isFavorite) {
-      setFavorites((prevFavorites) => [...prevFavorites, favCountry]);
-    } else {
+  const handleFavCountries = useCallback(
+    (favCountry) => {
+      const isFavorite = favorites.some((country) => country === favCountry);
+      if (!isFavorite) {
+        setFavorites((prevFavorites) => [...prevFavorites, favCountry]);
+      } else {
+        const updatedFavorites = favorites.filter(
+          (country) => country !== favCountry
+        );
+        setFavorites(updatedFavorites);
+      }
+    },
+    [favorites]
+  );
+
+  const handleRemoveFavorite = useCallback(
+    (countryFav) => {
       const updatedFavorites = favorites.filter(
-        (country) => country !== favCountry
+        (country) => country !== countryFav
       );
       setFavorites(updatedFavorites);
-    }
-  };
+      setIsFavorite(false);
+    },
+    [favorites]
+  );
 
-  const handleRemoveFavorite = (countryFav) => {
-    const updatedFavorites = favorites.filter(
-      (country) => country !== countryFav
-    );
-    setFavorites(updatedFavorites);
-  };
-
-  const handleClearFavorites = () => {
+  const handleClearFavorites = useCallback(() => {
     setFavorites([]);
-  };
+  }, []);
 
-  const filteredCountries = countriesList.filter((country) => {
-    const nameMatches = country.name.official
-      .toLowerCase()
-      .includes(inputValue.toLowerCase());
-    const langMatches =
-      selectLang === '' ||
-      Object.values(country.languages).includes(selectLang);
-    const regionMatches =
-      selectRegion === '' || country.region === selectRegion;
-    return nameMatches && langMatches && regionMatches;
-  });
+  const filteredCountries = useMemo(() => {
+    return countriesList.filter((country) => {
+      const nameMatches = country.name.official
+        .toLowerCase()
+        .includes(inputValue.toLowerCase());
+      const langMatches =
+        selectLang === '' ||
+        Object.values(country.languages).includes(selectLang);
+      const regionMatches =
+        selectRegion === '' || country.region === selectRegion;
+      return nameMatches && langMatches && regionMatches;
+    });
+  }, [countriesList, inputValue, selectLang, selectRegion]);
 
-  const handleSelectRegion = (value) => {
+  const handleSelectRegion = useCallback((value) => {
     setSelectRegion(value === 'All' ? '' : value);
-  };
+  }, []);
 
-  const handleSelectLang = (value) => {
+  const handleSelectLang = useCallback((value) => {
     setSelectLang(value === 'All' ? '' : value);
-  };
+  }, []);
 
-  const handleInputChange = (value) => {
+  const handleInputChange = useCallback((value) => {
     setInputValue(value);
-  };
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -113,6 +123,8 @@ const HomePage = () => {
             regions={regions}
             favorites={favorites}
             favCountries={handleFavCountries}
+            isFavorite={isFavorite}
+            setIsFavorite={setIsFavorite}
           />
         )}
       </main>
