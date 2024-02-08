@@ -10,7 +10,7 @@ const FilterLanguage = ({ selectLang, selectChange, languages }) => {
     <div>
       <form>
         <label className="filter-lang-title" htmlFor="filter-lang">
-          Filter by Language:
+          Filter by language:
         </label>
         <select id="filter-lang" value={selectLang} onChange={handleSelect}>
           <option value="All">All languages</option>

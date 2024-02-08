@@ -14,11 +14,14 @@ const CountriesList = ({
   onSelectRegion,
   languages,
   regions,
+  favCountries,
 }) => {
   const noMatches = filteredCountries.length === 0;
 
   const renderedCountries = filteredCountries.map((country, i) => {
-    return <CountriesCard key={i} country={country} />;
+    return (
+      <CountriesCard key={i} country={country} favCountries={favCountries} />
+    );
   });
 
   return (

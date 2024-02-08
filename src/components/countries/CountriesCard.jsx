@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
+// import FavItem from '../home/FavItem';
 import '../../styles/countries/CountriesCard.scss';
 import emptyHeart from '../../images/empty-heart.png';
 import fulfilledHeart from '../../images/fulfilled-heart.png';
 
-const CountriesCard = ({ country }) => {
+const CountriesCard = ({ country, favCountries }) => {
   const [isFav, setIsFav] = useState(false);
   const navigate = useNavigate();
 
@@ -16,10 +17,10 @@ const CountriesCard = ({ country }) => {
   const handleHeartClick = (e) => {
     e.stopPropagation();
     setIsFav(!isFav);
-    console.log('isFav:', !isFav);
     console.log(
       `el país con nombre: ${country.name.official} ha sido marcado como favorito`
     );
+    favCountries(country);
   };
 
   return (

@@ -4,6 +4,7 @@ import Header from '../common/Header';
 import CountriesList from '../countries/CountriesList';
 import Footer from '../common/Footer';
 import Spinner from '../Spinner';
+import FavCountries from './FavCountries';
 
 const HomePage = () => {
   const [countriesList, setCountriesList] = useState([]);
@@ -13,7 +14,30 @@ const HomePage = () => {
   const [languages, setLanguages] = useState([]);
   const [regions, setRegions] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [favorite, setFavorite] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+
+  const handleFavCountries = (favCountry) => {
+    const isFavorite = favorites.some((country) => country === favCountry);
+    if (!isFavorite) {
+      setFavorites((prevFavorites) => [...prevFavorites, favCountry]);
+    } else {
+      const updatedFavorites = favorites.filter(
+        (country) => country !== favCountry
+      );
+      setFavorites(updatedFavorites);
+    }
+  };
+
+  const handleRemoveFavorite = (countryName) => {
+    const updatedFavorites = favorites.filter(
+      (country) => country.name !== countryName
+    );
+    setFavorites(updatedFavorites);
+  };
+
+  const handleClearFavorites = () => {
+    setFavorites([]);
+  };
 
   const filteredCountries = countriesList.filter((country) => {
     const nameMatches = country.name.official
@@ -68,6 +92,12 @@ const HomePage = () => {
         <Header />
       </header>
       <main>
+        <FavCountries
+          filteredCountries={filteredCountries}
+          favorites={favorites}
+          onRemoveFavorite={handleRemoveFavorite}
+          onClearFavorites={handleClearFavorites}
+        />
         {loading ? (
           <Spinner />
         ) : (
@@ -81,6 +111,8 @@ const HomePage = () => {
             onSelectRegion={handleSelectRegion}
             languages={languages}
             regions={regions}
+            favorites={favorites}
+            favCountries={handleFavCountries}
           />
         )}
       </main>
