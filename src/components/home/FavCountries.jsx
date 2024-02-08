@@ -6,8 +6,9 @@ const FavCountries = ({ favorites, onRemoveFavorite, onClearFavorites }) => {
     <div>
       <div>
         <h4>Favorites countries:</h4>
+        <button onClick={onClearFavorites}>Clear All</button>
         {favorites.length > 0 ? (
-          <div>
+          <div className="favorites-section">
             {favorites.map((favCountry, index) => (
               <FavItem
                 key={index}
@@ -15,7 +16,6 @@ const FavCountries = ({ favorites, onRemoveFavorite, onClearFavorites }) => {
                 onRemoveFavorite={onRemoveFavorite}
               />
             ))}
-            <button onClick={onClearFavorites}>Clear All</button>
           </div>
         ) : (
           <p>No favorite countries selected.</p>
