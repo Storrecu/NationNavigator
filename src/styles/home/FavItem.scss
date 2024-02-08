@@ -1,15 +1,9 @@
 .favCountry_card {
-  width: 80%;
+  width: 50%;
   border: 2px solid lightgray;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px;
-  position: relative;
   display: flex;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+  flex-direction: column;
 
   &-img {
     width: 100%;
@@ -18,33 +12,16 @@
     display: flex;
   }
 
-  &-heart {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 80%;
-    left: 70%;
-    z-index: 1000;
-
-    @media all and (min-width: 768px) {
-      left: 76%;
-    }
-    @media all and (min-width: 1200px) {
-      left: 82%;
-    }
-
-    &-img {
-      width: 40%;
-    }
+  &-text {
+    padding: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
   }
-}
 
-.my-anchor-element {
-  padding: 0.5rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
-  height: 80px;
-  position: relative;
+  &-btn {
+    width: 50%;
+    margin: auto;
+  }
 }

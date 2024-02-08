@@ -1,6 +1,7 @@
 .favorites-section {
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
 }

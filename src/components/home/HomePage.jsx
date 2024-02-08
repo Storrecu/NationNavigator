@@ -28,9 +28,9 @@ const HomePage = () => {
     }
   };
 
-  const handleRemoveFavorite = (countryName) => {
+  const handleRemoveFavorite = (countryFav) => {
     const updatedFavorites = favorites.filter(
-      (country) => country.name !== countryName
+      (country) => country !== countryFav
     );
     setFavorites(updatedFavorites);
   };
