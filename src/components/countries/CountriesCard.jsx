@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 import '../../styles/countries/CountriesCard.scss';
@@ -18,11 +19,16 @@ const CountriesCard = ({
 
   const handleHeartClick = (e) => {
     e.stopPropagation();
-    setIsFavorite(!isFavorite);
+    favCountries(country);
+
+    if (country.name.official === e.target.value) {
+      setIsFavorite(!isFavorite);
+    }
+
+    // setIsFavorite(!isFavorite);
     console.log(
       `el país con nombre: ${country.name.official} ha sido marcado como favorito`
     );
-    favCountries(country);
   };
 
   return (
@@ -55,4 +61,4 @@ const CountriesCard = ({
   );
 };
 
-export default CountriesCard;
+export default memo(CountriesCard);

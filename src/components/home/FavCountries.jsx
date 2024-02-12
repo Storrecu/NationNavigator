@@ -4,7 +4,7 @@ import FavItem from './FavItem';
 const FavCountries = ({ favorites, onRemoveFavorite, onClearFavorites }) => {
   return (
     <div className="favorites">
-      <h4>Favorites countries:</h4>
+      <h4>Favorite countries:</h4>
       <button onClick={onClearFavorites}>Clear All</button>
       {favorites.length > 0 ? (
         <div className="favorites-section">

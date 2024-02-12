@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
+// import { useCountriesContext } from '../../hooks/use-countries-context';
 import callToApi from '../../services/callToApi';
 import Header from '../common/Header';
 import CountriesList from '../countries/CountriesList';
@@ -7,6 +8,8 @@ import Spinner from '../Spinner';
 import FavCountries from './FavCountries';
 
 const HomePage = () => {
+  // const { filteredCountries } = useCountriesContext();
+
   const [countriesList, setCountriesList] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [selectLang, setSelectLang] = useState('');

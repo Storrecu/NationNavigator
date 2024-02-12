@@ -20,7 +20,7 @@ const CountriesList = ({
 }) => {
   const noMatches = filteredCountries.length === 0;
 
-  const renderedCountries = filteredCountries.map((country, i) => {
+  const renderedCountries = filteredCountries.sort().map((country, i) => {
     return (
       <CountriesCard
         key={i}
