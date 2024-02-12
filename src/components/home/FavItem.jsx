@@ -1,12 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import '../../styles/home/FavItem.scss';
 
 const FavItem = ({ favCountry, onRemoveFavorite }) => {
+  const handleFavCardClick = () => {
+    navigate(`/name/${favCountry.name.official}`);
+  };
+
+  const navigate = useNavigate();
+
   const handleHeartClick = () => {
     onRemoveFavorite(favCountry);
   };
 
   return (
-    <div className="favCountry_card">
+    <div className="favCountry_card" onClick={handleFavCardClick}>
       <img
         className="favCountry_card-img"
         src={favCountry.flags.svg}
