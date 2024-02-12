@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Map, tileLayer } from 'leaflet';
 import axios from 'axios';
@@ -41,18 +41,18 @@ const CountriesDetails = () => {
     }
   }, [countryDetails]);
 
-  const initMap = () => {
+  const initMap = useCallback(() => {
     map &&
       tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
-  };
+  }, [map]);
 
   useEffect(() => {
     initMap();
-  }, [map]);
+  }, [map, initMap]);
 
   return (
     <div>
