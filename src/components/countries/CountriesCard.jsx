@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
@@ -5,13 +6,9 @@ import '../../styles/countries/CountriesCard.scss';
 import emptyHeart from '../../images/empty-heart.png';
 import fulfilledHeart from '../../images/fulfilled-heart.png';
 
-const CountriesCard = ({
-  country,
-  favCountries,
-  isFavorite,
-  setIsFavorite,
-}) => {
+const CountriesCard = ({ country, favCountries }) => {
   const navigate = useNavigate();
+  const [isFav, setIsFav] = useState(false);
 
   const handleCardClick = () => {
     navigate(`/name/${country.name.official}`);
@@ -20,15 +17,8 @@ const CountriesCard = ({
   const handleHeartClick = (e) => {
     e.stopPropagation();
     favCountries(country);
-
-    if (country.name.official === e.target.value) {
-      setIsFavorite(!isFavorite);
-    }
-
-    // setIsFavorite(!isFavorite);
-    console.log(
-      `el país con nombre: ${country.name.official} ha sido marcado como favorito`
-    );
+    country.isFav = isFav;
+    setIsFav(!isFav);
   };
 
   return (
@@ -43,7 +33,7 @@ const CountriesCard = ({
         {country.name.official}
       </Tooltip>
       <span className="country_card-heart" onClick={handleHeartClick}>
-        {isFavorite ? (
+        {isFav ? (
           <img
             className="country_card-heart-img"
             src={fulfilledHeart}
