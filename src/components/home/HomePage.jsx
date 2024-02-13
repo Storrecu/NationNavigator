@@ -6,6 +6,7 @@ import CountriesList from '../countries/CountriesList';
 import Footer from '../common/Footer';
 import Spinner from '../Spinner';
 import FavCountries from './FavCountries';
+import ls from '../../services/ls';
 
 const HomePage = () => {
   // const { filteredCountries } = useCountriesContext();
@@ -15,9 +16,12 @@ const HomePage = () => {
   const [selectLang, setSelectLang] = useState('');
   const [selectRegion, setSelectRegion] = useState('');
   const [languages, setLanguages] = useState([]);
-  const [regions, setRegions] = useState([]);
+  const [regions, setRegions] = useState(ls.get('favoriteCountries', []));
   const [loading, setLoading] = useState(false);
   const [favorites, setFavorites] = useState([]);
+
+  // const [todos, setTodos] = useState(ls.get('updatedTasks', defaultTodos));
+  // ls.set('updatedTasks', todos);
 
   const handleFavCountries = useCallback(
     (favCountry) => {
@@ -29,6 +33,7 @@ const HomePage = () => {
           (country) => country !== favCountry
         );
         setFavorites(updatedFavorites);
+        ls.set('favoriteCountries', favorites);
       }
     },
     [favorites]

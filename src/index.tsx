@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
 // import { Provider } from './context/countries';
@@ -10,9 +10,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <Provider>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
   // </Provider>
 );
 
