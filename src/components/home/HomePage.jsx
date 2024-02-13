@@ -124,10 +124,7 @@ const HomePage = () => {
             onSelectRegion={handleSelectRegion}
             languages={languages}
             regions={regions}
-            favorites={favorites}
             favCountries={handleFavCountries}
-            isFavorite={isFavorite}
-            setIsFavorite={setIsFavorite}
           />
         )}
       </main>

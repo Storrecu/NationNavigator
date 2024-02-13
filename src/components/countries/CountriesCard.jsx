@@ -16,9 +16,9 @@ const CountriesCard = ({ country, favCountries }) => {
 
   const handleHeartClick = (e) => {
     e.stopPropagation();
-    favCountries(country);
     country.isFav = isFav;
     setIsFav(!isFav);
+    favCountries(country);
   };
 
   return (
