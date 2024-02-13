@@ -48,8 +48,10 @@ const CountriesList = ({
       <div className="main_content_countries-list">
         {noMatches ? <p>No matches found</p> : renderedCountries}
       </div>
-      <button>
-        <a href="#header">Up</a>
+      <button className="main_content-btn">
+        <a className="main_content-btn-text" href="#header">
+          Go Up
+        </a>
       </button>
     </div>
   );

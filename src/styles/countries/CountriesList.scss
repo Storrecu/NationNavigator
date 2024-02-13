@@ -33,4 +33,12 @@
       max-width: 1600px;
     }
   }
+
+  &-btn {
+    margin: 2rem;
+
+    &-text {
+      text-decoration: none;
+    }
+  }
 }
