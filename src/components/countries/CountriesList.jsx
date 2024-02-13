@@ -48,6 +48,9 @@ const CountriesList = ({
       <div className="main_content_countries-list">
         {noMatches ? <p>No matches found</p> : renderedCountries}
       </div>
+      <button>
+        <a href="#header">Up</a>
+      </button>
     </div>
   );
 };

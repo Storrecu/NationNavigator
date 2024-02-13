@@ -126,9 +126,6 @@ const HomePage = () => {
             favCountries={handleFavCountries}
           />
         )}
-        <button>
-          <a href="#header">Up</a>
-        </button>
       </main>
       <footer>
         <Footer />
