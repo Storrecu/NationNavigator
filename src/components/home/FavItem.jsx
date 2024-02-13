@@ -8,7 +8,8 @@ const FavItem = ({ favCountry, onRemoveFavorite }) => {
 
   const navigate = useNavigate();
 
-  const handleHeartClick = () => {
+  const handleHeartClick = (e) => {
+    e.stopPropagation();
     onRemoveFavorite(favCountry);
   };
 

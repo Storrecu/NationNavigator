@@ -4,8 +4,10 @@ import FavItem from './FavItem';
 const FavCountries = ({ favorites, onRemoveFavorite, onClearFavorites }) => {
   return (
     <div className="favorites">
-      <h4>Favorite countries:</h4>
-      <button onClick={onClearFavorites}>Clear All</button>
+      <h4 className="favorites-title">Favorite countries:</h4>
+      <button className="favorites-btn" onClick={onClearFavorites}>
+        Clear All
+      </button>
       {favorites.length > 0 ? (
         <div className="favorites-section">
           {favorites.map((favCountry, index) => (

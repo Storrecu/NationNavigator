@@ -3,19 +3,18 @@
   height: 300px;
   border: 2px solid lightgray;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
 
   &-img {
-    max-width: 90%;
+    width: 80%;
+    height: 80%;
     margin: auto;
-    padding: 1rem;
-    display: flex;
   }
 
   &-text {
-    padding: 0.5rem;
+    margin: 1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -25,5 +24,6 @@
   &-btn {
     width: 50%;
     margin: auto;
+    margin-bottom: 1rem;
   }
 }
