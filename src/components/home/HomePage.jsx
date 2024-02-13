@@ -99,7 +99,7 @@ const HomePage = () => {
 
   return (
     <div className="home_page">
-      <header>
+      <header id="header">
         <Header />
       </header>
       <main>
@@ -126,6 +126,9 @@ const HomePage = () => {
             favCountries={handleFavCountries}
           />
         )}
+        <button>
+          <a href="#header">Up</a>
+        </button>
       </main>
       <footer>
         <Footer />
