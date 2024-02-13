@@ -16,25 +16,23 @@ const HomePage = () => {
   const [selectLang, setSelectLang] = useState('');
   const [selectRegion, setSelectRegion] = useState('');
   const [languages, setLanguages] = useState([]);
-  const [regions, setRegions] = useState(ls.get('favoriteCountries', []));
+  const [regions, setRegions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [favorites, setFavorites] = useState([]);
-
-  // const [todos, setTodos] = useState(ls.get('updatedTasks', defaultTodos));
-  // ls.set('updatedTasks', todos);
 
   const handleFavCountries = useCallback(
     (favCountry) => {
       const isFavorite = favorites.some((country) => country === favCountry);
+      let updatedFavorites;
       if (!isFavorite) {
-        setFavorites((prevFavorites) => [...prevFavorites, favCountry]);
+        updatedFavorites = [...favorites, favCountry];
       } else {
-        const updatedFavorites = favorites.filter(
+        updatedFavorites = favorites.filter(
           (country) => country !== favCountry
         );
-        setFavorites(updatedFavorites);
-        ls.set('favoriteCountries', favorites);
       }
+      setFavorites(updatedFavorites);
+      ls.set('favoriteCountries', updatedFavorites);
     },
     [favorites]
   );
@@ -45,12 +43,14 @@ const HomePage = () => {
         (country) => country !== countryFav
       );
       setFavorites(updatedFavorites);
+      ls.remove('favoriteCountries', updatedFavorites);
     },
     [favorites]
   );
 
   const handleClearFavorites = useCallback(() => {
     setFavorites([]);
+    ls.clear('favoriteCountries');
   }, []);
 
   const filteredCountries = useMemo(() => {
@@ -80,6 +80,8 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
+    const storedFavorites = ls.get('favoriteCountries', []);
+    setFavorites(storedFavorites);
     setLoading(true);
     callToApi()
       .then((response) => {
