@@ -18,7 +18,6 @@ const HomePage = () => {
   const [regions, setRegions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [favorites, setFavorites] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavCountries = useCallback(
     (favCountry) => {
@@ -41,7 +40,6 @@ const HomePage = () => {
         (country) => country !== countryFav
       );
       setFavorites(updatedFavorites);
-      setIsFavorite(false);
     },
     [favorites]
   );
@@ -124,6 +122,7 @@ const HomePage = () => {
             onSelectRegion={handleSelectRegion}
             languages={languages}
             regions={regions}
+            favorites={favorites}
             favCountries={handleFavCountries}
           />
         )}

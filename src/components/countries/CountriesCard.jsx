@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
@@ -6,9 +5,8 @@ import '../../styles/countries/CountriesCard.scss';
 import emptyHeart from '../../images/empty-heart.png';
 import fulfilledHeart from '../../images/fulfilled-heart.png';
 
-const CountriesCard = ({ country, favCountries }) => {
+const CountriesCard = ({ country, isFav, favCountries }) => {
   const navigate = useNavigate();
-  const [isFav, setIsFav] = useState(false);
 
   const handleCardClick = () => {
     navigate(`/name/${country.name.official}`);
@@ -16,8 +14,6 @@ const CountriesCard = ({ country, favCountries }) => {
 
   const handleHeartClick = (e) => {
     e.stopPropagation();
-    country.isFav = isFav;
-    setIsFav(!isFav);
     favCountries(country);
   };
 
