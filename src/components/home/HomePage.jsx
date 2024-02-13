@@ -43,7 +43,7 @@ const HomePage = () => {
         (country) => country !== countryFav
       );
       setFavorites(updatedFavorites);
-      ls.remove('favoriteCountries', updatedFavorites);
+      ls.remove('favoriteCountries');
     },
     [favorites]
   );
