@@ -38,7 +38,7 @@
   }
 
   &-btn {
-    text-decoration: none;
+    margin: 2rem;
     width: 150px;
     background-color: #e0fcec;
     border: none;
@@ -50,6 +50,10 @@
 
     &:hover {
       background-color: #e0c9d1;
+    }
+
+    &-text {
+      text-decoration: none;
     }
   }
 }
