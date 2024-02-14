@@ -42,8 +42,9 @@ const HomePage = () => {
       const updatedFavorites = favorites.filter(
         (country) => country !== countryFav
       );
+      console.log(updatedFavorites);
       setFavorites(updatedFavorites);
-      ls.remove('favoriteCountries', updatedFavorites);
+      ls.set('favoriteCountries', updatedFavorites);
     },
     [favorites]
   );
