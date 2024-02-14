@@ -6,9 +6,24 @@
   gap: 1rem;
   background-color: #f2fbfb;
 
+  &-title {
+    font-size: 20px;
+    color: #9974b5;
+  }
+
   &-btn {
-    width: 100px;
-    height: 25px;
+    width: 150px;
+    background-color: #f7e3eb;
+    border: none;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #e0c9d1;
+    }
   }
 
   &-section {
