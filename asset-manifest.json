@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.10456d4f.css",
-    "main.js": "/static/js/main.5f1e6b5e.js",
-    "static/js/592.4470f59d.chunk.js": "/static/js/592.4470f59d.chunk.js",
-    "static/media/header.png": "/static/media/header.9ed9f31c454544388cc3.png",
-    "static/media/world.png": "/static/media/world.456930b33e30b00c5074.png",
-    "static/media/404.jpeg": "/static/media/404.ed86698a011f7d9af557.jpeg",
-    "static/media/empty-heart.png": "/static/media/empty-heart.d8feb822f85020a13d20.png",
-    "static/media/fulfilled-heart.png": "/static/media/fulfilled-heart.15fd50190df926839ec6.png",
-    "index.html": "/index.html",
-    "main.10456d4f.css.map": "/static/css/main.10456d4f.css.map",
-    "main.5f1e6b5e.js.map": "/static/js/main.5f1e6b5e.js.map",
-    "592.4470f59d.chunk.js.map": "/static/js/592.4470f59d.chunk.js.map"
+    "main.css": "/NationNavigator/static/css/main.c94b3b27.css",
+    "main.js": "/NationNavigator/static/js/main.edbac380.js",
+    "static/js/592.4470f59d.chunk.js": "/NationNavigator/static/js/592.4470f59d.chunk.js",
+    "static/media/header.png": "/NationNavigator/static/media/header.9ed9f31c454544388cc3.png",
+    "static/media/world.png": "/NationNavigator/static/media/world.456930b33e30b00c5074.png",
+    "static/media/404.jpeg": "/NationNavigator/static/media/404.ed86698a011f7d9af557.jpeg",
+    "static/media/empty-heart.png": "/NationNavigator/static/media/empty-heart.d8feb822f85020a13d20.png",
+    "static/media/fulfilled-heart.png": "/NationNavigator/static/media/fulfilled-heart.15fd50190df926839ec6.png",
+    "index.html": "/NationNavigator/index.html",
+    "main.c94b3b27.css.map": "/NationNavigator/static/css/main.c94b3b27.css.map",
+    "main.edbac380.js.map": "/NationNavigator/static/js/main.edbac380.js.map",
+    "592.4470f59d.chunk.js.map": "/NationNavigator/static/js/592.4470f59d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.10456d4f.css",
-    "static/js/main.5f1e6b5e.js"
+    "static/css/main.c94b3b27.css",
+    "static/js/main.edbac380.js"
   ]
 }
