@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { Map, tileLayer } from 'leaflet';
 import axios from 'axios';
 import Spinner from '../Spinner';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 
 const CountriesDetails = () => {
   const { name } = useParams();
@@ -57,8 +59,10 @@ const CountriesDetails = () => {
 
   return (
     <div>
+      <Header />
       {loading ? <Spinner /> : countryDetails && countryDetails.name.official}
       <div id="map" style={{ height: '400px', width: '100%' }}></div>
+      <Footer />
     </div>
   );
 };
