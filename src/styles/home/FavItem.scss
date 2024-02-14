@@ -3,14 +3,25 @@
   height: 350px;
   border: 2px solid lightgray;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   // display: grid;
   // grid-template-columns: auto;
   // grid-template-rows: 1fr;
 
   &-img {
-    width: 80%;
-    height: 75%;
+    width: 128px;
+    height: 80px;
     margin: auto;
+
+    @media all and (min-width: 768px) {
+      width: 165px;
+    }
+    @media all and (min-width: 1200px) {
+      width: 237px;
+      height: 120px;
+    }
   }
 
   &-text {
