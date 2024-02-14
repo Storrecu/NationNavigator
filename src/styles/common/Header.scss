@@ -1,15 +1,22 @@
 .header {
   width: 100vw;
-  height: fit-content;
+  height: 25vh;
   padding: 1rem;
+  position: relative;
+  background-image: url('../../images/header.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
   &_link {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     text-decoration: none;
+    position: absolute;
+    top: 50%;
 
     &-img {
       width: 90px;

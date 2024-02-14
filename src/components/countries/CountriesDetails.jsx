@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Map, tileLayer } from 'leaflet';
@@ -62,4 +63,4 @@ const CountriesDetails = () => {
   );
 };
 
-export default CountriesDetails;
+export default memo(CountriesDetails);
