@@ -33,6 +33,7 @@ const CountriesList = ({
   return (
     <div className="main_content">
       <div className="main_content-filters">
+        <h4 className="main_content-filters-title">Filter countries:</h4>
         <SearchBar inputValue={inputValue} onInputChange={onInputChange} />
         <FilterLanguage
           selectLang={selectLang}

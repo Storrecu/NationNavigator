@@ -16,6 +16,11 @@
     @media all and (min-width: 768px) {
       flex-direction: row;
     }
+
+    &-title {
+      font-size: 20px;
+      color: #9974b5;
+    }
   }
 
   &_countries-list {
