@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   // <Provider>
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/NationNavigator">
       <App />
     </BrowserRouter>
   </StrictMode>
