@@ -46,6 +46,7 @@ También encontrarás este enlace en la esquina superior derecha, en la sección
 1. Arreglar Tooltip para visualizar el nombre completo del país al poner el ratón encima del nombre del país.
 2. La sección de favoritos está en la parte superior de la página y justo debajo el listado de paises. Si refrescas la página, se mantienen los paises que se hayan añadido a favoritos, pero el icono de favorito en el listado de paises se pierde. La idea es, que si el país está en la lista de favoritos, el icono de dicho país quede siempre marcado aunque refresques la página.
 3. Mostrar más detalles de cada país y dar estilo a la sección, por ahora, sólo muestra la ubicación del país en un mapa.
+4. Añadir el tipado de TypeScript
 
 ## Pasos para arrancar el proyecto.
 
@@ -110,6 +111,7 @@ You will also find this link in the top right corner, under the "About" section.
 1. Fix Tooltip to display the full name of the country when hovering over the country name.
 2. The favorites section is at the top of the page and just below the list of countries. If you refresh the page, the countries that have been added to favorites are retained, but the favorite icon in the list of countries is lost. The idea is that if the country is in the favorites list, the icon of that country should always be marked even if you refresh the page.
 3. Show more details of each country and style the section, for now, it only shows the location of the country on a map.
+4. Add TypeScript typing"
 
 ## Steps to start the project.
 
