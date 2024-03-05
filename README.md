@@ -51,10 +51,10 @@ También encontrarás este enlace en la esquina superior derecha, en la sección
 ## Pasos para arrancar el proyecto.
 
 1. Ubica el botón azul con el texto: <> Code y copia la URL que aparece en HTTPS.
-2. Abre la terminal en tu equipo y decide en que carpeta guardarás el proyecto. Una vez situado, ejecuta el comando: ```git clone ```seguido de la URL que has copiado anteriormente.
+2. Abre la terminal en tu equipo y decide en que carpeta guardarás el proyecto. Una vez te hayas ubicado, ejecuta el comando: ```git clone ```seguido de la URL que has copiado anteriormente.
 3. Abre el proyecto en Visual Studio Code y abre la terminal.
 4. Ejecuta ```npm install ```
-5. A continuación ejecuta ```npm start ``` . Se abrirá el proyecto en una ventana de tu navegador para ver el proyecto y poder toquetear.
+5. A continuación ejecuta ```npm start ``` . Se abrirá el proyecto en una ventana de tu navegador para ver el proyecto.
 
 ## Contribución.
 Estoy abierta a cualquier mejora, sugerencia o feedback que quieras comunicarme. No tengas reparos en comunicarte conmigo mediante correo o linkedIn: 
@@ -119,7 +119,7 @@ You will also find this link in the top right corner, under the "About" section.
 2. Open the terminal on your computer and decide in which folder you will save the project. Once located, execute the command: ```git clone``` followed by the URL you copied earlier.
 3. Open the project in Visual Studio Code and open the terminal.
 4. Run ```npm install```
-5. Next, run ```npm start``` . The project will open in a window of your browser to view the project and tinker with it.
+5. Next, run ```npm start``` . The project will open in a window of your browser to view the project.
 
 ## Contribution.
 I am open to any improvement, suggestion, or feedback you want to communicate to me. Feel free to contact me via email or LinkedIn:
