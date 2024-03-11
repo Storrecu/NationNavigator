@@ -14,6 +14,17 @@ const CountriesDetails = () => {
   const mapInit = useRef(false);
   const [loading, setLoading] = useState(false);
 
+  const countryLang = countryDetails
+    ? Object.values(countryDetails.languages)
+    : null;
+  const countryCapital = countryDetails?.capital[0];
+  const currencies = countryDetails && countryDetails.currencies;
+  const currencyKeys = currencies ? Object.keys(currencies) : null;
+  const currencyName = currencyKeys ? currencies[currencyKeys[0]].name : null;
+  const currencySymbol = currencyKeys
+    ? currencies[currencyKeys[0]].symbol
+    : null;
+
   useEffect(() => {
     setLoading(true);
     const fetchCountryDetails = async () => {
@@ -60,8 +71,20 @@ const CountriesDetails = () => {
   return (
     <div>
       <Header />
-      {loading ? <Spinner /> : countryDetails && countryDetails.name.official}
+      {loading ? <Spinner /> : <div>{countryDetails?.name.official}</div>}
       <div id="map" style={{ height: '400px', width: '100%' }}></div>
+      <div>Capital:{countryCapital}</div>
+      <div>Region:{countryDetails?.region}</div>
+      <div>Subregion: {countryDetails?.subregion}</div>
+      <div>
+        Flag:
+        <img src={countryDetails?.flags.png} alt={countryDetails?.flags.alt} />
+      </div>
+      <div>
+        {currencyName && <div>Currency Name: {currencyName}</div>}
+        {currencySymbol && <div>Currency Symbol: {currencySymbol}</div>}
+      </div>
+      <div>Languages: {countryLang}</div>
       <Footer />
     </div>
   );
