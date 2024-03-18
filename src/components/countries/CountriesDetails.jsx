@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Map, tileLayer } from 'leaflet';
+import { Map, marker, tileLayer } from 'leaflet'; // Importar marker desde leaflet
 import axios from 'axios';
 import Spinner from '../Spinner';
 import Header from '../common/Header';
@@ -68,11 +68,21 @@ const CountriesDetails = () => {
     initMap();
   }, [map, initMap]);
 
+  const addMarker = useCallback(() => {
+    if (map && countryDetails) {
+      marker(countryDetails.latlng).addTo(map);
+    }
+  }, [map, countryDetails]);
+
+  useEffect(() => {
+    addMarker();
+  }, [map, addMarker]);
+
   return (
     <div>
       <Header />
       {loading ? <Spinner /> : <div>{countryDetails?.name.official}</div>}
-      <div id="map" style={{ height: '400px', width: '100%' }}></div>
+
       <div>Capital:{countryCapital}</div>
       <div>Region:{countryDetails?.region}</div>
       <div>Subregion: {countryDetails?.subregion}</div>
@@ -85,6 +95,7 @@ const CountriesDetails = () => {
         {currencySymbol && <div>Currency Symbol: {currencySymbol}</div>}
       </div>
       <div>Languages: {countryLang}</div>
+      <div id="map" style={{ height: '400px', width: '100%' }}></div>
       <Footer />
     </div>
   );
