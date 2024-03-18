@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/NationNavigator/static/css/main.d09cecb0.css",
-    "main.js": "/NationNavigator/static/js/main.930014c3.js",
+    "main.css": "/NationNavigator/static/css/main.83260b9b.css",
+    "main.js": "/NationNavigator/static/js/main.12fa337c.js",
     "static/js/592.4470f59d.chunk.js": "/NationNavigator/static/js/592.4470f59d.chunk.js",
     "static/media/header.png": "/NationNavigator/static/media/header.9ed9f31c454544388cc3.png",
     "static/media/world.png": "/NationNavigator/static/media/world.456930b33e30b00c5074.png",
@@ -9,12 +9,12 @@
     "static/media/empty-heart.png": "/NationNavigator/static/media/empty-heart.d8feb822f85020a13d20.png",
     "static/media/fulfilled-heart.png": "/NationNavigator/static/media/fulfilled-heart.15fd50190df926839ec6.png",
     "index.html": "/NationNavigator/index.html",
-    "main.d09cecb0.css.map": "/NationNavigator/static/css/main.d09cecb0.css.map",
-    "main.930014c3.js.map": "/NationNavigator/static/js/main.930014c3.js.map",
+    "main.83260b9b.css.map": "/NationNavigator/static/css/main.83260b9b.css.map",
+    "main.12fa337c.js.map": "/NationNavigator/static/js/main.12fa337c.js.map",
     "592.4470f59d.chunk.js.map": "/NationNavigator/static/js/592.4470f59d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d09cecb0.css",
-    "static/js/main.930014c3.js"
+    "static/css/main.83260b9b.css",
+    "static/js/main.12fa337c.js"
   ]
 }
