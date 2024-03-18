@@ -30,8 +30,8 @@
   &_countries-list {
     display: grid;
     grid-template-rows: auto;
-    justify-items: center;
-    align-items: center;
+    justify-content: center;
+    align-content: center;
     gap: 10px;
     padding-top: 1rem;
 
@@ -46,7 +46,7 @@
     @media all and (min-width: 768px) {
       grid-template-columns: repeat(3, 1fr);
       margin: auto;
-      gap: 1rem;
+      gap: 1.5rem;
     }
     @media all and (min-width: 1200px) {
       grid-template-columns: repeat(4, 1fr);
