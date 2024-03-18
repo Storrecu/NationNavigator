@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Map, marker, tileLayer } from 'leaflet'; // Importar marker desde leaflet
+import { Map, marker, tileLayer } from 'leaflet';
 import axios from 'axios';
 import Spinner from '../Spinner';
 import Header from '../common/Header';

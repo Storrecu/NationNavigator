@@ -15,11 +15,13 @@ const FavItem = ({ favCountry, onRemoveFavorite }) => {
 
   return (
     <div className="favCountry_card" onClick={handleFavCardClick}>
-      <img
-        className="favCountry_card-img"
-        src={favCountry.flags.svg}
-        alt={favCountry.flags.alt}
-      />
+      <div className="favCountry_card-img-container">
+        <img
+          className="img"
+          src={favCountry.flags.svg}
+          alt={favCountry.flags.alt}
+        />
+      </div>
       <p className="favCountry_card-text">{favCountry.name.official}</p>
       <button className="favCountry_card-btn" onClick={handleHeartClick}>
         Remove
