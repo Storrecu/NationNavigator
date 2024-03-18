@@ -22,7 +22,7 @@ const CountriesCard = ({ country, isFav, favCountries }) => {
         <img className="img" src={country.flags.svg} alt={country.flags.alt} />
       </div>
 
-      <p className="my-anchor-element">{country.name.official}</p>
+      <p className="country_card-name">{country.name.official}</p>
       <span className="country_card-heart" onClick={handleHeartClick}>
         {isFav ? (
           <img

@@ -1,5 +1,5 @@
 .country_card {
-  width: 80%;
+  width: 200px;
   height: 200px;
   border: 2px solid lightgray;
   border-radius: 10px;
@@ -17,6 +17,11 @@
     transform: scale(1.05);
   }
 
+  @media all and (min-width: 1200px) {
+    width: 250px;
+    height: 250px;
+  }
+
   &-img-container {
     width: 90%;
     max-height: 73px;
@@ -31,6 +36,23 @@
       @media all and (min-width: 768px) {
         padding: 0;
       }
+    }
+  }
+
+  &-name {
+    padding: 0.5rem;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+    height: 80px;
+    position: relative;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
+
+    @media all and (min-width: 768px) {
+      font-size: 16pxs;
     }
   }
 
@@ -52,22 +74,5 @@
     &-img {
       width: 40%;
     }
-  }
-}
-
-.my-anchor-element {
-  padding: 0.5rem;
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 160px;
-  height: 80px;
-  position: relative;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: left;
-
-  @media all and (min-width: 1200px) {
-    font-size: 16pxs;
   }
 }
