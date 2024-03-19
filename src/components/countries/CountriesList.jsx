@@ -30,21 +30,29 @@ const CountriesList = ({
     );
   });
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="main_content">
-      <div className="main_content-filters">
-        <h4 className="main_content-filters-title">Filter countries:</h4>
-        <SearchBar inputValue={inputValue} onInputChange={onInputChange} />
-        <FilterLanguage
-          selectLang={selectLang}
-          selectChange={onSelectLang}
-          languages={languages}
-        />
-        <FilterRegion
-          selectRegion={selectRegion}
-          selectChange={onSelectRegion}
-          regions={regions}
-        />
+      <h4 className="main_content-title">Filter countries:</h4>
+      <div className="all-filters">
+        <div className="main_content-filters">
+          <SearchBar inputValue={inputValue} onInputChange={onInputChange} />
+        </div>
+        <form onSubmit={handleFormSubmit} className="form">
+          <FilterLanguage
+            selectLang={selectLang}
+            selectChange={onSelectLang}
+            languages={languages}
+          />
+          <FilterRegion
+            selectRegion={selectRegion}
+            selectChange={onSelectRegion}
+            regions={regions}
+          />
+        </form>
       </div>
       <div className="main_content_countries-list">
         {noMatches ? <p>No matches found</p> : renderedCountries}

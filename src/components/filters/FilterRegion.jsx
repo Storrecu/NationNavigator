@@ -7,21 +7,19 @@ const FilterRegion = ({ selectRegion, selectChange, regions }) => {
   };
 
   return (
-    <div>
-      <form>
-        <label className="filter-reg-title" htmlFor="filter-reg">
-          Filter by region:
-        </label>
-        <select id="filter-reg" value={selectRegion} onChange={handleSelect}>
-          <option value="All">All regions</option>
-          {regions.map((region, i) => (
-            <option key={i} value={region}>
-              {region}
-            </option>
-          ))}
-        </select>
-      </form>
-    </div>
+    <>
+      <label className="filter-reg-title" htmlFor="filter-reg">
+        Filter by region:
+      </label>
+      <select id="filter-reg" value={selectRegion} onChange={handleSelect}>
+        <option value="All">All regions</option>
+        {regions.map((region, i) => (
+          <option key={i} value={region}>
+            {region}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
 

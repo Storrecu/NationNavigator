@@ -7,21 +7,19 @@ const FilterLanguage = ({ selectLang, selectChange, languages }) => {
   };
 
   return (
-    <div>
-      <form>
-        <label className="filter-lang-title" htmlFor="filter-lang">
-          Filter by language:
-        </label>
-        <select id="filter-lang" value={selectLang} onChange={handleSelect}>
-          <option value="All">All languages</option>
-          {languages.map((language, i) => (
-            <option key={i} value={language}>
-              {language}
-            </option>
-          ))}
-        </select>
-      </form>
-    </div>
+    <>
+      <label className="filter-lang-title" htmlFor="filter-lang">
+        Filter by language:
+      </label>
+      <select id="filter-lang" value={selectLang} onChange={handleSelect}>
+        <option value="All">All languages</option>
+        {languages.map((language, i) => (
+          <option key={i} value={language}>
+            {language}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
 

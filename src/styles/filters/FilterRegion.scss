@@ -1,10 +1,12 @@
 .filter-reg-title {
-  margin: 0.5rem;
   font-size: 16px;
   font-weight: 600;
+  margin-bottom: 0.5rem;
 
   @media all and (min-width: 768px) {
     font-size: 18px;
+    text-align: center;
+    margin-bottom: 0;
   }
   @media all and (min-width: 1200px) {
     font-size: 20px;
@@ -14,8 +16,13 @@
 #filter-reg {
   font-size: 16px;
 
+  @media all and (width >= 450px) {
+    max-width: 80%;
+  }
+
   @media all and (min-width: 768px) {
     font-size: 18px;
+    max-width: 50%;
   }
   @media all and (min-width: 1200px) {
     font-size: 20px;
