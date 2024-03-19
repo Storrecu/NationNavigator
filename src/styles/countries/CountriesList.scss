@@ -20,7 +20,7 @@
     width: 100%;
     padding: 1rem;
 
-    @media all and (min-width: 1024px) {
+    @media all and (min-width: 768px) {
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -42,9 +42,13 @@
       align-items: center;
     }
 
-    @media all and (min-width: 1200px) {
+    @media all and (min-width: 1024px) {
       width: 40%;
     }
+
+    // @media all and (min-width: 1200px) {
+    //   width: 40%;
+    // }
   }
 
   .form {
@@ -58,11 +62,9 @@
 
     .lang-box,
     .reg-box {
-      @media all and (min-width: 100px) {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     @media all and (width >= 768px) {
