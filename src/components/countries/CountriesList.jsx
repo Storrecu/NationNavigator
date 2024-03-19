@@ -42,16 +42,20 @@ const CountriesList = ({
           <SearchBar inputValue={inputValue} onInputChange={onInputChange} />
         </div>
         <form onSubmit={handleFormSubmit} className="form">
-          <FilterLanguage
-            selectLang={selectLang}
-            selectChange={onSelectLang}
-            languages={languages}
-          />
-          <FilterRegion
-            selectRegion={selectRegion}
-            selectChange={onSelectRegion}
-            regions={regions}
-          />
+          <div className="lang-box">
+            <FilterLanguage
+              selectLang={selectLang}
+              selectChange={onSelectLang}
+              languages={languages}
+            />
+          </div>
+          <div className="reg-box">
+            <FilterRegion
+              selectRegion={selectRegion}
+              selectChange={onSelectRegion}
+              regions={regions}
+            />
+          </div>
         </form>
       </div>
       <div className="main_content_countries-list">

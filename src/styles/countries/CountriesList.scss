@@ -9,7 +9,6 @@
 
   &-title {
     width: 100%;
-    text-align: left;
     padding: 1rem;
     font-size: 20px;
     color: #9974b5;
@@ -19,12 +18,14 @@
   .all-filters {
     background-color: #f5fffa;
     width: 100%;
+    padding: 1rem;
 
     @media all and (min-width: 1024px) {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      padding: 1rem 2rem;
     }
   }
 
@@ -38,11 +39,10 @@
     background-color: #f5fffa;
 
     @media all and (min-width: 768px) {
-      flex-direction: row;
       align-items: center;
     }
 
-    @media all and (min-width: 1024px) {
+    @media all and (min-width: 1200px) {
       width: 40%;
     }
   }
@@ -56,12 +56,22 @@
     justify-content: center;
     background-color: #f5fffa;
 
+    .lang-box,
+    .reg-box {
+      @media all and (min-width: 100px) {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
     @media all and (width >= 768px) {
       flex-direction: row;
       align-items: center;
+      width: 95%;
     }
 
-    @media all and (min-width: 1024px) {
+    @media all and (min-width: 1200px) {
       width: 60%;
     }
   }
@@ -71,7 +81,7 @@
     grid-template-rows: auto;
     justify-content: center;
     align-content: center;
-    gap: 10px;
+    gap: 1rem;
     padding-top: 1rem;
 
     @media all and (width <= 450px) {
@@ -80,17 +90,18 @@
 
     @media all and (width >= 450px) {
       grid-template-columns: repeat(2, minmax(200px, auto));
+      gap: 1.5rem;
     }
 
     @media all and (min-width: 768px) {
       grid-template-columns: repeat(3, 1fr);
       margin: auto;
-      gap: 1.5rem;
+      gap: 1.8;
     }
     @media all and (min-width: 1200px) {
       grid-template-columns: repeat(4, 1fr);
       max-width: 1600px;
-      gap: 2rem;
+      gap: 2.3rem;
     }
   }
 
