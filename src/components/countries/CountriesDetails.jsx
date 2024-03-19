@@ -79,22 +79,29 @@ const CountriesDetails = () => {
   }, [map, addMarker]);
 
   return (
-    <div>
+    <div className="country_details">
       <Header />
-      {loading ? <Spinner /> : <div>{countryDetails?.name.official}</div>}
+      {loading ? <Spinner /> : <h2>{countryDetails?.name.official}</h2>}
 
-      <div>Capital:{countryCapital}</div>
-      <div>Region:{countryDetails?.region}</div>
-      <div>Subregion: {countryDetails?.subregion}</div>
-      <div>
-        Flag:
-        <img src={countryDetails?.flags.png} alt={countryDetails?.flags.alt} />
-      </div>
-      <div>
-        {currencyName && <div>Currency Name: {currencyName}</div>}
-        {currencySymbol && <div>Currency Symbol: {currencySymbol}</div>}
-      </div>
-      <div>Languages: {countryLang}</div>
+      <section className="country_details-info">
+        <div>
+          <img
+            src={countryDetails?.flags.png}
+            alt={countryDetails?.flags.alt}
+          />
+        </div>
+        <h3>Country information</h3>
+        <div>Capital:{countryCapital}</div>
+        <div>Population: {countryDetails?.population} sq km</div>
+        <div>Region:{countryDetails?.region}</div>
+        <div>Subregion: {countryDetails?.subregion}</div>
+
+        <div>
+          {currencyName && <div>Currency Name: {currencyName}</div>}
+          {currencySymbol && <div>Currency Symbol: {currencySymbol}</div>}
+        </div>
+        <div>Languages: {countryLang}</div>
+      </section>
       <div id="map" style={{ height: '400px', width: '100%' }}></div>
       <Footer />
     </div>

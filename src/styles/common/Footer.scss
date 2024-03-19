@@ -3,4 +3,15 @@
   display: flex;
   justify-content: flex-start;
   background-color: #f5fffa;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    margin-left: 0.5rem;
+
+    &:hover {
+      color: #7b5a94;
+    }
+  }
 }

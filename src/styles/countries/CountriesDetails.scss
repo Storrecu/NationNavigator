@@ -1,0 +1,16 @@
+.country_details {
+  width: 100%;
+
+  &h2 {
+  }
+
+  #map {
+  }
+}
+
+.country_details-info {
+  display: grid;
+  grid-template-columns: 1, 1fr;
+  justify-content: center;
+  align-items: center;
+}
