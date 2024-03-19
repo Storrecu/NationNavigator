@@ -96,14 +96,20 @@
 
   &-btn {
     margin: 2rem;
-    width: 150px;
     background-color: #e0fcec;
-    border: none;
-    color: #000;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
+    .fa-solid {
+      font-size: 24px;
+      font-weight: bold;
+
+      @media all and (min-width: 1200px) {
+        font-size: 30px;
+      }
+    }
 
     &:hover {
       background-color: #e0c9d1;
@@ -111,6 +117,10 @@
 
     &-text {
       text-decoration: none;
+    }
+
+    @media all and (min-width: 1200px) {
+      margin: 4rem 2rem;
     }
   }
 }
