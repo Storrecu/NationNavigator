@@ -63,7 +63,7 @@ const CountriesList = ({
       </div>
       <div className="main_content-btn">
         <a className="main_content-btn-text" href="#header">
-          <i class="fa-solid fa-angles-up"></i>
+          <i className="fa-solid fa-angles-up"></i>
         </a>
       </div>
     </div>
